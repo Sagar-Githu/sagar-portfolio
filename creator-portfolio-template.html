@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Creator Portfolio Template</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+/* ============================================================
+   ░░░  EDIT YOUR CLIENT'S DETAILS BELOW  ░░░
+   Everything in this :root block + the CONFIG comments controls
+   the whole site. Change values here, nothing else.
+   ============================================================ */
+:root{
+  /* ---- COLORS (hex) ---- */
+  --bg:        #14171F;   /* main background */
+  --bg-alt:    #1B1F2A;   /* alternate section background */
+  --text:      #F2EFE9;   /* main text color */
+  --text-dim:  #9CA3B5;   /* secondary/muted text */
+  --accent:    #D4A847;   /* gold accent - buttons, highlights, borders */
+  --accent-dim:#8A7438;   /* darker accent for hover states */
+
+  /* ---- FONTS ---- */
+  --font-display: 'Playfair Display', serif;  /* headings */
+  --font-body: 'Inter', sans-serif;            /* body text */
+
+  /* ---- LAYOUT ---- */
+  --radius: 2px;          /* corner roundness: 0 = sharp, 16 = very round */
+  --max-width: 1100px;
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     CONFIG: Replace every [BRACKETED] value and image src below.
+     This is the ONLY section you need to touch for a new client.
+     ============================================================ -->
+<script>
+const CONFIG = {
+  name: "Avni Krishwani",
+  tagline: "Premium Live Event Host",
+  heroLine: "The Art of Presence. Elevated.",
+  monogram: "AK",                 // 2 letters for the seal badge
+  location: "Mumbai",
+
+  about: {
+    heading: "A Visionary Emcee",
+    body: "I'm Avni, a passionate and dynamic professional anchor and emcee based in Mumbai. My stage presence, clear communication, and magnetic audience engagement ensure your event is not just hosted, but transformed into a memorable journey. I bring a unique blend of professionalism, vibrant energy, and sophisticated humor to every stage.",
+    photo: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80"
+  },
+
+  expertise: [
+    { title: "Global Conferences", text: "Flawless hosting for summits, dealer meets, and international corporate gatherings." },
+    { title: "Awards & Gala Nights", text: "Adding prestige and gravitas to formal ceremonies and high-end receptions." },
+    { title: "Product Launches", text: "Confidently conveying your brand message with impact and excitement." },
+    { title: "Fashion & Lifestyle", text: "Dynamic and articulate hosting for fashion shows, exhibitions, and lifestyle events." }
+  ],
+
+  partners: [
+    "Sunrise", "Ching's", "LEGO", "Adobe", "Amazon",
+    "Rolex", "Nissin", "HSBC", "Flipkart",
+    "KP Capital", "Warner Bros", "Mahindra"
+  ],
+
+  gallery: [
+    "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80",
+    "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&q=80",
+    "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=600&q=80",
+    "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=600&q=80",
+    "https://images.unsplash.com/photo-1591115765373-5207764f72e7?w=600&q=80",
+    "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=600&q=80"
+  ],
+
+  testimonials: [
+    { quote: "Professionalism and engaging presence are unmatched. She elevated our Annual Summit, delivering a world-class experience.", source: "Global Tech Firm, Leadership Summit" },
+    { quote: "Elegant, commanding, and effortlessly funny. Handled our three-day destination wedding with absolute grace.", source: "Luxury Wedding Client, Dubai" }
+  ],
+
+  contact: {
+    email: "hello@example.com",
+    phone: "+91 00000 00000",
+    instagram: "https://instagram.com/yourhandle"
+  }
+};
+</script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--font-body);
+  line-height:1.6;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+
+.wrap{max-width:var(--max-width);margin:0 auto;padding:0 24px;}
+
+/* ---------- NAV ---------- */
+header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(20,23,31,0.92);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid rgba(212,168,71,0.15);
+}
+.nav{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 24px;max-width:var(--max-width);margin:0 auto;
+}
+.logo{
+  font-family:var(--font-display);
+  font-size:1.3rem;font-weight:600;
+  color:var(--accent);
+  letter-spacing:0.3px;
+}
+.navlinks{display:flex;gap:32px;list-style:none;}
+.navlinks a{
+  font-size:0.78rem;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--text-dim);transition:color .2s;
+}
+.navlinks a:hover{color:var(--accent);}
+.book-btn{
+  background:var(--accent);color:var(--bg);
+  padding:10px 22px;border-radius:30px;
+  font-size:0.78rem;letter-spacing:1px;text-transform:uppercase;font-weight:600;
+  white-space:nowrap;
+}
+.menu-toggle{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer;}
+
+@media(max-width:820px){
+  .navlinks{display:none;}
+  .menu-toggle{display:block;}
+}
+
+/* ---------- HERO ---------- */
+.hero{
+  min-height:92vh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;position:relative;
+  padding:60px 24px;
+  background:
+    radial-gradient(ellipse at 50% 20%, rgba(212,168,71,0.08), transparent 60%),
+    var(--bg);
+}
+.seal{
+  width:84px;height:84px;border:1.5px solid var(--accent);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-display);font-size:1.6rem;color:var(--accent);
+  margin-bottom:28px;
+  position:relative;
+  animation:fadein 1s ease forwards;
+}
+.seal::before{
+  content:'';position:absolute;inset:-8px;
+  border:1px dotted rgba(212,168,71,0.35);border-radius:50%;
+}
+.eyebrow{
+  font-size:0.8rem;letter-spacing:3px;text-transform:uppercase;
+  color:var(--accent);margin-bottom:18px;font-weight:600;
+}
+.hero h1{
+  font-family:var(--font-display);
+  font-size:clamp(2.4rem,7vw,4.6rem);
+  font-weight:700;letter-spacing:1px;
+  text-shadow:0 0 40px rgba(212,168,71,0.25);
+  margin-bottom:20px;
+}
+.hero p.tag{
+  font-family:var(--font-display);font-style:italic;
+  font-size:clamp(1rem,2.4vw,1.3rem);
+  color:var(--text-dim);margin-bottom:36px;
+}
+.cta-btn{
+  display:inline-block;background:var(--accent);color:var(--bg);
+  padding:16px 44px;border-radius:30px;
+  font-size:0.82rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;
+  transition:transform .2s, box-shadow .2s;
+}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(212,168,71,0.3);}
+
+@keyframes fadein{from{opacity:0;transform:scale(.8);}to{opacity:1;transform:scale(1);}}
+
+/* ---------- SECTION HEADERS ---------- */
+.section{padding:90px 24px;}
+.section-alt{background:var(--bg-alt);}
+.sec-head{text-align:center;margin-bottom:56px;}
+.sec-head h2{
+  font-family:var(--font-display);font-weight:700;
+  font-size:clamp(1.8rem,4vw,2.6rem);
+  margin-bottom:14px;
+}
+.sec-head .underline{
+  width:64px;height:2px;background:var(--accent);margin:0 auto;
+}
+
+/* ---------- ABOUT ---------- */
+.about-grid{
+  display:grid;grid-template-columns:0.9fr 1.1fr;gap:56px;align-items:center;
+  max-width:var(--max-width);margin:0 auto;
+}
+.about-grid img{
+  border-radius:var(--radius);
+  filter:grayscale(0.15) contrast(1.05);
+  aspect-ratio:4/5;object-fit:cover;
+}
+.about-text h3{
+  font-family:var(--font-display);font-size:1.9rem;margin-bottom:22px;
+}
+.about-text p{color:var(--text-dim);font-size:1.02rem;margin-bottom:28px;}
+.outline-btn{
+  display:inline-block;border:1px solid var(--accent);color:var(--accent);
+  padding:13px 32px;border-radius:30px;
+  font-size:0.78rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;
+  transition:background .2s, color .2s;
+}
+.outline-btn:hover{background:var(--accent);color:var(--bg);}
+
+@media(max-width:760px){
+  .about-grid{grid-template-columns:1fr;gap:32px;}
+}
+
+/* ---------- EXPERTISE ---------- */
+.expertise-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:24px;max-width:var(--max-width);margin:0 auto;
+}
+.exp-card{
+  border:1px solid rgba(212,168,71,0.3);
+  padding:34px 26px;border-radius:var(--radius);
+  text-align:center;transition:border-color .2s, transform .2s;
+}
+.exp-card:hover{border-color:var(--accent);transform:translateY(-4px);}
+.exp-icon{
+  width:48px;height:48px;margin:0 auto 18px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.6rem;color:var(--accent);
+}
+.exp-card h4{
+  font-family:var(--font-display);font-size:1.15rem;margin-bottom:12px;
+}
+.exp-card p{color:var(--text-dim);font-size:0.92rem;}
+
+/* ---------- PARTNERS ---------- */
+.partner-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+  gap:18px;max-width:var(--max-width);margin:0 auto;
+}
+.partner-box{
+  background:var(--bg);border:1px solid rgba(255,255,255,0.08);
+  border-radius:var(--radius);
+  aspect-ratio:1.3;display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-display);font-weight:600;font-size:0.95rem;
+  color:var(--text-dim);text-align:center;padding:10px;
+  transition:border-color .2s, color .2s;
+}
+.partner-box:hover{border-color:var(--accent);color:var(--accent);}
+
+/* ---------- GALLERY ---------- */
+.gallery-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:16px;
+  max-width:var(--max-width);margin:0 auto;
+}
+.gallery-grid img{
+  border-radius:var(--radius);width:100%;height:340px;object-fit:cover;
+  filter:saturate(1.05);transition:transform .4s;
+}
+.gallery-grid img:hover{transform:scale(1.02);}
+@media(max-width:600px){
+  .gallery-grid img{height:240px;}
+}
+
+/* ---------- TESTIMONIALS ---------- */
+.testi-wrap{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:24px;}
+.testi-card{
+  border:1px solid rgba(212,168,71,0.3);border-radius:var(--radius);
+  padding:34px 30px;position:relative;
+}
+.testi-card .mark{color:var(--accent);font-family:var(--font-display);font-size:2.2rem;line-height:1;margin-bottom:10px;display:block;}
+.testi-card p.quote{
+  font-family:var(--font-display);font-style:italic;font-size:1.08rem;
+  margin-bottom:18px;
+}
+.testi-card .src{color:var(--accent);font-size:0.85rem;font-weight:600;}
+
+/* ---------- CONTACT ---------- */
+.contact-sec{text-align:center;}
+.contact-sec h2{color:var(--accent);font-family:var(--font-display);font-weight:700;font-size:clamp(1.7rem,4vw,2.4rem);margin-bottom:10px;}
+.contact-sec .underline{width:64px;height:2px;background:var(--accent);margin:14px auto 22px;}
+.contact-sec p.sub{color:var(--text-dim);margin-bottom:38px;}
+.contact-buttons{display:flex;flex-direction:column;align-items:center;gap:16px;max-width:400px;margin:0 auto;}
+.contact-buttons a{width:100%;text-align:center;padding:15px;}
+
+/* ---------- FOOTER ---------- */
+footer{
+  text-align:center;padding:32px 24px;color:var(--text-dim);
+  font-size:0.8rem;border-top:1px solid rgba(255,255,255,0.06);
+}
+footer .seal{width:40px;height:40px;font-size:0.85rem;margin:0 auto 14px;}
+</style>
+
+<header>
+  <nav class="nav">
+    <div class="logo" id="logo"></div>
+    <ul class="navlinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#expertise">Expertise</a></li>
+      <li><a href="#gallery">Highlights</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#partners">Clients</a></li>
+    </ul>
+    <a href="#contact" class="book-btn">Book Now</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="seal" id="hero-seal"></div>
+  <div class="eyebrow" id="hero-eyebrow"></div>
+  <h1 id="hero-name"></h1>
+  <p class="tag" id="hero-tag"></p>
+  <a href="#contact" class="cta-btn">Enquire Now</a>
+</section>
+
+<section class="section" id="about">
+  <div class="about-grid">
+    <img id="about-photo" alt="">
+    <div class="about-text">
+      <h3 id="about-heading"></h3>
+      <p id="about-body"></p>
+      <a href="#expertise" class="outline-btn">View My Services</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="expertise">
+  <div class="sec-head">
+    <h2>Core Expertise</h2>
+    <div class="underline"></div>
+  </div>
+  <div class="expertise-grid" id="expertise-grid"></div>
+</section>
+
+<section class="section" id="partners">
+  <div class="sec-head">
+    <h2>Trusted Partners</h2>
+    <div class="underline"></div>
+  </div>
+  <div class="partner-grid" id="partner-grid"></div>
+</section>
+
+<section class="section section-alt" id="gallery">
+  <div class="sec-head">
+    <h2>Curated Gallery</h2>
+    <div class="underline"></div>
+  </div>
+  <div class="gallery-grid" id="gallery-grid"></div>
+</section>
+
+<section class="section" id="reviews">
+  <div class="sec-head">
+    <h2>Client Praise</h2>
+    <div class="underline"></div>
+  </div>
+  <div class="testi-wrap" id="testi-wrap"></div>
+</section>
+
+<section class="section section-alt contact-sec" id="contact">
+  <h2>Let's Elevate Your Next Event</h2>
+  <div class="underline"></div>
+  <p class="sub">Limited dates available. Reach out directly to discuss your requirements and secure your booking.</p>
+  <div class="contact-buttons" id="contact-buttons"></div>
+</section>
+
+<footer>
+  <div class="seal" id="footer-seal"></div>
+  <div id="footer-name"></div>
+</footer>
+
+<script>
+// ---- Render everything from CONFIG. No edits needed below this line. ----
+document.getElementById('logo').textContent = CONFIG.name;
+document.getElementById('hero-seal').textContent = CONFIG.monogram;
+document.getElementById('footer-seal').textContent = CONFIG.monogram;
+document.getElementById('hero-eyebrow').textContent = CONFIG.tagline;
+document.getElementById('hero-name').textContent = CONFIG.name.toUpperCase();
+document.getElementById('hero-tag').textContent = CONFIG.heroLine;
+document.getElementById('footer-name').textContent = `© ${new Date().getFullYear()} ${CONFIG.name}. All rights reserved.`;
+
+document.getElementById('about-heading').textContent = CONFIG.about.heading;
+document.getElementById('about-body').textContent = CONFIG.about.body;
+document.getElementById('about-photo').src = CONFIG.about.photo;
+document.getElementById('about-photo').alt = CONFIG.name;
+
+const expIcons = ['◆','✦','◇','❖','✧','◈'];
+document.getElementById('expertise-grid').innerHTML = CONFIG.expertise.map((e,i)=>`
+  <div class="exp-card">
+    <div class="exp-icon">${expIcons[i % expIcons.length]}</div>
+    <h4>${e.title}</h4>
+    <p>${e.text}</p>
+  </div>
+`).join('');
+
+document.getElementById('partner-grid').innerHTML = CONFIG.partners.map(p=>`
+  <div class="partner-box">${p}</div>
+`).join('');
+
+document.getElementById('gallery-grid').innerHTML = CONFIG.gallery.map(src=>`
+  <img src="${src}" alt="${CONFIG.name} event highlight" loading="lazy">
+`).join('');
+
+document.getElementById('testi-wrap').innerHTML = CONFIG.testimonials.map(t=>`
+  <div class="testi-card">
+    <span class="mark">"</span>
+    <p class="quote">${t.quote}</p>
+    <div class="src">— ${t.source}</div>
+  </div>
+`).join('');
+
+const contactHTML = [];
+if(CONFIG.contact.email){
+  contactHTML.push(`<a href="mailto:${CONFIG.contact.email}" class="cta-btn">✉ Booking Enquiry</a>`);
+}
+if(CONFIG.contact.phone){
+  contactHTML.push(`<a href="tel:${CONFIG.contact.phone.replace(/\s/g,'')}" class="outline-btn">☎ Call Now</a>`);
+}
+if(CONFIG.contact.instagram){
+  contactHTML.push(`<a href="${CONFIG.contact.instagram}" class="outline-btn" target="_blank" rel="noopener">Instagram</a>`);
+}
+document.getElementById('contact-buttons').innerHTML = contactHTML.join('');
+</script>
+
+</body>
+</html>
